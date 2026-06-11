@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방화 마사지 이벤트 정보 | 방화동 마사지 상세</title>
+    <meta name="description" content="방화 마사지 이벤트의 모든 정보를 확인하세요. 방화동 최고의 마사지샵, 특별 이벤트 가격, 위치, 이용 팁까지. 지금 전화 주시면 추가 혜택을 드립니다. 010-6279-0862">
+    <meta name="keywords" content="방화 마사지 이벤트, 방화 마사지 정보, 방화동 마사지, 방화 마사지 가격, 방화 마사지 위치, 마사지 이벤트 안내">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-warm-grid">
+    <link rel="canonical" href="https://t3b07-bh-massage-evt-1.vercel.app/info">
+    <meta property="og:title" content="방화 마사지 이벤트 정보 | 방화동 최고의 마사지">
+    <meta property="og:description" content="방화 마사지 이벤트의 모든 정보를 확인하세요. 방화동 최고의 마사지샵, 특별 이벤트 가격, 위치, 이용 팁까지. 지금 전화 주시면 추가 혜택을 드립니다.">
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: #faf8f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Navigation */
+        nav {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #c17a4a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #c17a4a;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #333;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #faf8f5 0%, #f0ece6 100%);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero .cta-btn {
+            display: inline-block;
+            background: #c17a4a;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .hero .cta-btn:hover {
+            background: #a8653a;
+        }
+        
+        /* Info Section */
+        .info-section {
+            padding: 60px 0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .info-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .info-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #c17a4a;
+        }
+        .info-card p {
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0ece6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+        .info-card ul li::before {
+            content: "✓";
+            color: #c17a4a;
+            font-weight: 600;
+        }
+        
+        /* Price Table */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .price-table th,
+        .price-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #f0ece6;
+        }
+        .price-table th {
+            background: #faf8f5;
+            font-weight: 600;
+            color: #333;
+        }
+        .price-table td {
+            color: #444;
+        }
+        .price-table .highlight {
+            color: #c17a4a;
+            font-weight: 600;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+        .faq-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 16px;
+            border: 1px solid #f0ece6;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f5;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #f0ece6;
+        }
+        .faq-answer {
+            padding: 0 24px 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 32px 0;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #c17a4a;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+                gap: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">방화 마사지</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">홈</a></li>
+                <li><a href="/info">정보</a></li>
+                <li><a href="/event">이벤트</a></li>
+                <li><a href="tel:01062790862">010-6279-0862</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>방화 마사지 이벤트<br>완벽 정보 가이드</h1>
+            <p>방화동에서 가장 핫한 마사지 이벤트! 여기 모든 정보를 다 모아봤어. 가격, 시간, 꿀팁까지 한방에 정리했으니까 놓치지 마.</p>
+            <a href="tel:01062790862" class="cta-btn">지금 전화하고 혜택 받기</a>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h2>📍 위치 & 운영시간</h2>
+                    <p><strong>주소:</strong> 서울 강서구 방화동 (방화역 도보 5분)</p>
+                    <p><strong>운영시간:</strong> 매일 10:00 ~ 22:00 (연중무휴)</p>
+                    <p><strong>전화:</strong> <a href="tel:01062790862" style="color:#c17a4a; text-decoration:none; font-weight:600;">010-6279-0862</a></p>
+                    <p style="margin-top:16px;">방화역에서 내려서 5분만 걸으면 바로 보여. 주차도 가능하니까 차타고 와도 완전 편해. 근처에 카페도 많아서 마사지 받고 커피 한잔 하기도 좋아.</p>
+                </div>
+                <div class="info-card">
+                    <h2>💰 이벤트 가격표</h2>
+                    <table class="price-table">
+                        <thead>
+                            <tr><th>코스</th><th>정상가</th><th>이벤트가</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>전신 마사지 (60분)</td><td>80,000원</td><td class="highlight">55,000원</td></tr>
+                            <tr><td>스포츠 마사지 (90분)</td><td>120,000원</td><td class="highlight">85,000원</td></tr>
+                            <tr><td>아로마 마사지 (120분)</td><td>160,000원</td><td class="highlight">110,000원</td></tr>
+                            <tr><td>발 마사지 (30분)</td><td>40,000원</td><td class="highlight">28,000원</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top:12px; font-size:0.9rem; color:#888;">※ 이벤트 가격은 전화 예약 시 적용됩니다. 방문 전 꼭 전화 주세요!</p>
+                </div>
+                <div class="info-card">
+                    <h2>🔥 추천 코스</h2>
+                    <ul>
+                        <li><strong>🔥 베스트:</strong> 전신 마사지 60분 — 첫 방문이면 이걸로 시작해봐</li>
+                        <li><strong>🔥 핫딜:</strong> 스포츠 마사지 90분 — 운동 후 회복에 진짜 좋아</li>
+                        <li><strong>🔥 프리미엄:</strong> 아로마 마사지 120분 — 진짜 힐링 원하면 이거 추천</li>
+                        <li><strong>🔥 퀵:</strong> 발 마사지 30분 — 점심시간에 살짝 받기 좋아</li>
+                    </ul>
+                    <p style="margin-top:12px;">내 친구도 처음에 전신으로 시작했는데 완전 만족했어. 근데 너가 운동 많이 한다면 스포츠 마사지 강추!</p>
+                </div>
+                <div class="info-card">
+                    <h2>💡 이용 꿀팁</h2>
+                    <ul>
+                        <li><strong>전화 예약 필수!</strong> 이벤트 가격은 전화 예약자에 한해 적용</li>
+                        <li><strong>방문 10분 전 도착</strong> — 여유 있게 준비하면 더 좋아</li>
+                        <li><strong>편한 옷</strong> — 갈아입을 수 있는 옷 챙겨와</li>
+                        <li><strong>카드/현금 모두 가능</strong> — 결제 편하게</li>
+                        <li><strong>재방문 할인</strong> — 두 번째부터 5% 추가 할인!</li>
+                    </ul>
+                    <p style="margin-top:12px;">내 경험상 전화할 때 "이벤트 보고 왔어요"라고 말하면 더 친절하게 대해줘. 작은 팁이야 ㅎㅎ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>자주 묻는 질문</h2>
+            <div class="faq-item">
+                <div class="faq-question">이벤트는 언제까지 하나요? <span>▼</span></div>
+                <div class="faq-answer">이벤트는 별도 안내가 있을 때까지 계속 진행 중이에요. 하지만 인기가 많아서 조기 마감될 수도 있으니까 미리 전화 주시는 게 안전해요!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">예약 없이 방문해도 되나요? <span>▼</span></div>
+                <div class="faq-answer">네, 가능하지만 이벤트 가격은 전화 예약 시에만 적용돼요. 그리고 대기 시간이 생길 수 있으니까 전화 한 통이면 모든 게 해결됩니다!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">방화역에서 어떻게 가나요? <span>▼</span></div>
+                <div class="faq-answer">방화역 2번 출구로 나와서 직진 5분이면 도착해요. 네비게이션에 전화번호(010-6279-0862) 검색하셔도 돼요!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">커플이나 친구랑 같이 가면 할인 있나요? <span>▼</span></div>
+                <div class="faq-answer">2인 이상 예약 시 1인당 5,000원 추가 할인이 있어요! 친구랑 같이 가면 더 즐겁고 할인도 받고 일석이조!</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>방화 마사지 | 서울 강서구 방화동 | <a href="tel:01062790862">010-6279-0862</a></p>
+            <p style="margin-top:8px;">방화동 최고의 마사지, 합리적인 가격으로 만나보세요.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                document.querySelectorAll('.faq-question span').forEach(s => s.textContent = '▼');
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    this.querySelector('span').textContent = '▲';
+                }
+            });
+        });
+    </
+</body>
+</html>
