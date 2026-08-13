@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b07-bh-massage-evt-1</title>
+  <meta name="description" content="t3b07-bh-massage-evt-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://banghwa-care-note.mapo-room-guide.xyz/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* Reset & Base */
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ html { scroll-behavior: smooth; }
+ body {
+ font-family: system-ui, -apple-system, 'Inter', sans-serif;
+ background-color: #faf8f5;
+ color: #2d2a26;
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+ 
+ /* Container */
+ .container {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 24px;
+ }
+ 
+ /* Navigation */
+ nav {
+ position: sticky;
+ top: 0;
+ background-color: #faf8f5;
+ border-bottom: 1px solid #2d2a26;
+ z-index: 100;
+ padding: 16px 0;
+ }
+ nav .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .logo {
+ font-size: 1.25rem;
+ font-weight: 600;
+ color: #2d2a26;
+ text-decoration: none;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ color: #2d2a26;
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: color 0.2s ease;
+ }
+ .nav-links a:hover {
+ color: #e07a5f;
+ }
+ .hamburger {
+ display: none;
+ background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ }
+ .hamburger span {
+ display: block;
+ width: 24px;
+ height: 2px;
+ background: #2d2a26;
+ margin: 5px 0;
+ transition: all 0.3s ease;
+ }
+ 
+ /* Hero Section */
+ .hero {
+ padding: 72px 0;
+ border-bottom: 1px solid #2d2a26;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 48px;
+ align-items: center;
+ }
+ .hero-content h1 {
+ font-size: 2.5rem;
+ font-weight: 700;
+ line-height: 1.2;
+ margin-bottom: 24px;
+ }
+ .hero-content p {
+ font-size: 1.1rem;
+ margin-bottom: 32px;
+ color: #4a4a4a;
+ }
+ .hero-visual {
+ background-color: #e07a5f;
+ height: 320px;
+ border: 2px solid #2d2a26;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 4rem;
+ }
+ .cta-button {
+ display: inline-block;
+ background-color: #2d2a26;
+ color: #faf8f5;
+ padding: 14px 36px;
+ text-decoration: none;
+ font-weight: 600;
+ border: 2px solid #2d2a26;
+ transition: all 0.2s ease;
+ font-size: 1rem;
+ }
+ .cta-button:hover {
+ background-color: #e07a5f;
+ border-color: #e07a5f;
+ color: #faf8f5;
+ }
+ 
+ /* Sections */
+ section {
+ padding: 72px 0;
+ }
+ section + section {
+ border-top: 1px solid #ddd;
+ }
+ .section-title {
+ font-size: 2rem;
+ font-weight: 700;
+ margin-bottom: 48px;
+ text-align: center;
+ }
+ 
+ /* Cards Grid */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 48px;
+ }
+ .card {
+ border: 2px solid #2d2a26;
+ padding: 32px;
+ background-color: #faf8f5;
+ transition: all 0.2s ease;
+ }
+ .card:hover {
+ border-color: #e07a5f;
+ }
+ .card h3 {
+ font-size: 1.25rem;
+ margin-bottom: 16px;
+ }
+ .card p {
+ color: #4a4a4a;
+ font-size: 0.95rem;
+ }
+ .card .emoji-icon {
+ font-size: 2.5rem;
+ margin-bottom: 16px;
+ display: block;
+ }
+ 
+ /* Review Cards */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 48px;
+ }
+ .review-card {
+ border: 1px solid #2d2a26;
+ padding: 32px;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 16px;
+ font-size: 0.9rem;
+ }
+ .review-name {
+ font-weight: 600;
+ }
+ .review-date {
+ color: #888;
+ }
+ .review-stars {
+ color: #e07a5f;
+ font-size: 1.1rem;
+ margin-bottom: 12px;
+ }
+ .review-text {
+ color: #4a4a4a;
+ font-size: 0.95rem;
+ line-height: 1.7;
+ }
+ 
+ /* Event Section */
+ .event-list {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 48px;
+ }
+ .event-item {
+ border: 2px solid #2d2a26;
+ padding: 40px;
+ text-align: center;
+ }
+ .event-item .emoji-icon {
+ font-size: 3rem;
+ margin-bottom: 16px;
+ }
+ .event-item h3 {
+ font-size: 1.5rem;
+ margin-bottom: 12px;
+ }
+ .event-item .price {
+ font-size: 2rem;
+ font-weight: 700;
+ color: #e07a5f;
+ margin-bottom: 16px;
+ }
+ .event-item p {
+ color: #4a4a4a;
+ }
+ 
+ /* About Section */
+ .about-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 48px;
+ }
+ .about-text p {
+ margin-bottom: 16px;
+ }
+ .about-features {
+ border: 2px solid #2d2a26;
+ padding: 32px;
+ }
+ .about-features ul {
+ list-style: none;
+ }
+ .about-features li {
+ padding: 12px 0;
+ border-bottom: 1px solid #ddd;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ }
+ .about-features li:last-child {
+ border-bottom: none;
+ }
+ 
+ /* Footer */
+ footer {
+ border-top: 1px solid #2d2a26;
+ padding: 48px 0;
+ text-align: center;
+ color: #888;
+ font-size: 0.9rem;
+ }
+ footer a {
+ color: #2d2a26;
+ text-decoration: none;
+ }
+ footer a:hover {
+ color: #e07a5f;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 768px) {
+ .container {
+ padding: 0 16px;
+ }
+ 
+ .hero {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ padding: 48px 0;
+ }
+ .hero-content h1 {
+ font-size: 1.8rem;
+ }
+ .hero-visual {
+ height: 200px;
+ font-size: 3rem;
+ }
+ 
+ .card-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .review-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .event-list {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .about-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ 
+ section {
+ padding: 48px 0;
+ }
+ .section-title {
+ font-size: 1.5rem;
+ margin-bottom: 32px;
+ }
+ 
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ right: 0;
+ background: #faf8f5;
+ border-bottom: 1px solid #2d2a26;
+ flex-direction: column;
+ padding: 16px 24px;
+ gap: 16px;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: block;
+ }
+ }
+ 
+ /* Utility */
+ .text-center { text-align: center; }
+ .mt-24 { margin-top: 24px; }
+ .mb-24 { margin-bottom: 24px; }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b07-bh-massage-evt-1">
+  <meta property="og:description" content="t3b07-bh-massage-evt-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://banghwa-care-note.mapo-room-guide.xyz/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0273.html">방화 마사지 이벤트 속 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드</a>
+        <p class="post-item__summary">오랜만에 동료들과 저녁 약속을 잡은 김 대리는 방화 마사지 이벤트 관련 커뮤니티에서 정보를 얻으려다 혼란에 빠졌습니다. 목적지와는 무관한 광고성 글이 너무 많았기 때문입니다. 처음 방문하는 장소에서</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0012.html">방화 마사지 이벤트와 비교하는 마곡 유흥 추천정보 업체 선별법</a>
+        <p class="post-item__summary">여러분은 평소 여가를 즐길 장소를 고를 때 어떤 기준을 가장 중요하게 생각하시나요? 방화 마사지 이벤트 등 힐링 관련 정보를 자주 접하는 분들이라면 일반적인 유흥 공간을 고를 때도 더욱 신중한 잣대</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0013.html">방화 마사지 이벤트 활용 전 확인하는 합정 노래방 추천정보</a>
+        <p class="post-item__summary">도심 속 힐링을 위해 방화 마사지 이벤트 정보를 찾다가 자연스럽게 저녁 시간을 보내기 좋은 곳을 탐색하게 됩니다. 특히 합정 일대는 다양한 유흥 문화가 공존하여 선택의 폭이 매우 넓은 지역입니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0014.html">방화 마사지 이벤트 이후 향하는 연남 클럽 추천정보</a>
+        <p class="post-item__summary">피로를 풀기 위해 방화 마사지 이벤트 혜택을 이용한 뒤 활기찬 밤을 갈구하는 이들이 많습니다. 연남동은 독특한 개성을 가진 공간들이 밀집해 있어 젊은 층의 선호도가 매우 높습니다. 신중한 선택을 위</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0015.html">방화 마사지 이벤트 예약 실패 방지용 합정 셔츠룸 추천정보</a>
+        <p class="post-item__summary">방화 마사지 이벤트 정보를 찾는 분들이라면 이후 이어질 프라이빗한 시간에 대해서도 관심이 높습니다. 합정은 셔츠룸 서비스가 잘 갖춰진 곳으로 알려져 있으나 준비 없이 접근하면 낭패를 보기 쉽습니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0016.html">방화 마사지 이벤트 활용자를 위한 공덕 가라오케 추천정보</a>
+        <p class="post-item__summary">방화 마사지 이벤트 혜택을 누린 후 이어지는 공덕 지역의 밤 문화는 매우 매력적입니다. 많은 이들이 가라오케를 방문하지만, 정작 중요한 요소를 놓쳐 아쉬움을 남기곤 합니다. 따라서 믿을 수 있는 공</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0017.html">방화 마사지 이벤트 활용 전 필수 상수 마사지 추천정보 확인하기</a>
+        <p class="post-item__summary">주말 저녁 갑작스러운 근육통으로 급하게 테라피 숍을 찾는 경우가 있습니다. 익숙하지 않은 지역에서 방화 마사지 이벤트 정보를 보고 덜컥 방문했다가 당황하는 사례가 종종 발생하곤 합니다. 상수 지역은</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0018.html">방화 마사지 이벤트 대신 찾는 알찬 망원 노래방 추천정보 팁</a>
+        <p class="post-item__summary">많은 분이 노래방은 아무 때나 가도 동일한 품질의 서비스를 누릴 수 있다고 생각합니다. 하지만 이는 큰 오해이며 방화 마사지 이벤트와 마찬가지로 지역적 특성에 따라 운영 방식이 크게 다릅니다. 망원</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0019.html">방화 마사지 이벤트 비교만큼 중요한 홍대 노래방 추천정보 안내</a>
+        <p class="post-item__summary">쾌적한 환경, 합리적인 비용, 편리한 접근성은 노래방 선택의 핵심 충족 조건입니다. 많은 사람이 홍대 지역의 수많은 업체 중에서 고민하며 방화 마사지 이벤트 정보를 찾듯 꼼꼼히 비교합니다. 하지만 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0020.html">방화 마사지 이벤트 찾듯 신중한 공덕 셔츠룸 추천정보 선택법</a>
+        <p class="post-item__summary">오늘 밤 업무를 마친 뒤 어떤 장소에서 시간을 보내는 것이 가장 효율적일까요? 무심코 방화 마사지 이벤트 정보를 확인하는 것만큼이나 자신이 찾는 공간이 어떤 성격인지 명확히 아는 과정이 중요합니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0021.html">방화 마사지 이벤트 활용한 연남 유흥 추천정보 탐색법</a>
+        <p class="post-item__summary">주변 지역에서 제공되는 방화 마사지 이벤트 정보를 확인하는 과정은 지역 내 밤문화를 즐기려는 사람들에게 첫 단추가 됩니다. 단순한 힐링 서비스를 넘어 지역의 분위기를 파악하는 지표로 활용할 수 있기</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0022.html">방화 마사지 이벤트 비교를 통한 마곡 가라오케 추천정보 분석</a>
+        <p class="post-item__summary">다양한 방화 마사지 이벤트 정보를 살피다 보면 자연스럽게 인근의 엔터테인먼트 시설로 관심이 이어지기 마련입니다. 특히 마곡 지역에서는 가격 체계와 서비스 질을 두고 고민하는 경우가 많습니다. 합리적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">방화 마사지 이벤트 안내</a>
+        <p class="post-item__summary">방화 지역에서 진행되는 마사지 이벤트는 다양한 형태로 운영되며, 방문 전 충분한 정보를 수집하는 것이 중요합니다. 마사지 이벤트는 주로 새로운 고객의 관심을 끌기 위해 특별 혜택이나 패키지 구성으로</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">방화 마사지 이벤트 안내</a>
+        <p class="post-item__summary">방화 지역에서 진행 중인 마사지 관련 이벤트에 대해 안내드립니다. 최근 다양한 업소에서 고객들에게 알뜰한 혜택을 제공하기 위해 특별 이벤트를 운영하고 있으며, 해당 정보를 미리 파악해 두면 효율적으</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">방화 마사지 이벤트 안내</a>
+        <p class="post-item__summary">방화 지역에서 진행 중인 마사지 이벤트는 지역 주민들에게 다양한 휴식과 신체 관리 기회를 제공합니다. 일반적으로 이 유형의 이벤트는 특정 기간 동안 운영되며, 일반적인 웰니스 목적의 서비스와 관련된</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">방화 마사지 이벤트 안내</a>
+        <p class="post-item__summary">방화 지역에서 진행 중인 마사지 이벤트는 많은 이용자에게 휴식과 휴양의 기회를 제공하고 있습니다. 여러 업소에서 할인이나 특별 프로그램을 운영하며, 이용자들은 사전에 각 업소의 이벤트를 비교·확인한</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">방화 마사지 이벤트 안내</a>
+        <p class="post-item__summary">방화 지역에서 진행 중인 마사지 이벤트는 주로 건강 관리와 휴식에 관심이 있는 주민들을 대상으로 합니다. 이러한 이벤트는 지역 상권 활성화와 함께 소비자들에게 합리적인 가격으로 양질의 서비스를 제공</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-002-ovkim8.html">방화 마사지 이벤트 솔직 후기</a>
+        <p class="post-item__summary">방화 마사지 이벤트를 꾸준히 이용하면서 느낀 주요 특징과 장점에 대해 상세히 소개해 드립니다. 마사지 관리 프로그램을 3개월 동안 꾸준히 경험해보면 단순한 단기성 방문에서는 알기 어려운 여러 만족스</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>

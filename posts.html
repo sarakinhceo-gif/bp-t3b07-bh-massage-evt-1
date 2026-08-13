@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · t3b07-bh-massage-evt-1</title>
+  <meta name="description" content="t3b07-bh-massage-evt-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://banghwa-care-note.mapo-room-guide.xyz/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* Reset & Base */
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ html { scroll-behavior: smooth; }
+ body {
+ font-family: system-ui, -apple-system, 'Inter', sans-serif;
+ background-color: #faf8f5;
+ color: #2d2a26;
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+ 
+ /* Container */
+ .container {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 24px;
+ }
+ 
+ /* Navigation */
+ nav {
+ position: sticky;
+ top: 0;
+ background-color: #faf8f5;
+ border-bottom: 1px solid #2d2a26;
+ z-index: 100;
+ padding: 16px 0;
+ }
+ nav .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .logo {
+ font-size: 1.25rem;
+ font-weight: 600;
+ color: #2d2a26;
+ text-decoration: none;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ color: #2d2a26;
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: color 0.2s ease;
+ }
+ .nav-links a:hover {
+ color: #e07a5f;
+ }
+ .hamburger {
+ display: none;
+ background: none;
+ border: none;
+ cursor: pointer;
+ padding: 8px;
+ }
+ .hamburger span {
+ display: block;
+ width: 24px;
+ height: 2px;
+ background: #2d2a26;
+ margin: 5px 0;
+ transition: all 0.3s ease;
+ }
+ 
+ /* Hero Section */
+ .hero {
+ padding: 72px 0;
+ border-bottom: 1px solid #2d2a26;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 48px;
+ align-items: center;
+ }
+ .hero-content h1 {
+ font-size: 2.5rem;
+ font-weight: 700;
+ line-height: 1.2;
+ margin-bottom: 24px;
+ }
+ .hero-content p {
+ font-size: 1.1rem;
+ margin-bottom: 32px;
+ color: #4a4a4a;
+ }
+ .hero-visual {
+ background-color: #e07a5f;
+ height: 320px;
+ border: 2px solid #2d2a26;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 4rem;
+ }
+ .cta-button {
+ display: inline-block;
+ background-color: #2d2a26;
+ color: #faf8f5;
+ padding: 14px 36px;
+ text-decoration: none;
+ font-weight: 600;
+ border: 2px solid #2d2a26;
+ transition: all 0.2s ease;
+ font-size: 1rem;
+ }
+ .cta-button:hover {
+ background-color: #e07a5f;
+ border-color: #e07a5f;
+ color: #faf8f5;
+ }
+ 
+ /* Sections */
+ section {
+ padding: 72px 0;
+ }
+ section + section {
+ border-top: 1px solid #ddd;
+ }
+ .section-title {
+ font-size: 2rem;
+ font-weight: 700;
+ margin-bottom: 48px;
+ text-align: center;
+ }
+ 
+ /* Cards Grid */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 48px;
+ }
+ .card {
+ border: 2px solid #2d2a26;
+ padding: 32px;
+ background-color: #faf8f5;
+ transition: all 0.2s ease;
+ }
+ .card:hover {
+ border-color: #e07a5f;
+ }
+ .card h3 {
+ font-size: 1.25rem;
+ margin-bottom: 16px;
+ }
+ .card p {
+ color: #4a4a4a;
+ font-size: 0.95rem;
+ }
+ .card .emoji-icon {
+ font-size: 2.5rem;
+ margin-bottom: 16px;
+ display: block;
+ }
+ 
+ /* Review Cards */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 48px;
+ }
+ .review-card {
+ border: 1px solid #2d2a26;
+ padding: 32px;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 16px;
+ font-size: 0.9rem;
+ }
+ .review-name {
+ font-weight: 600;
+ }
+ .review-date {
+ color: #888;
+ }
+ .review-stars {
+ color: #e07a5f;
+ font-size: 1.1rem;
+ margin-bottom: 12px;
+ }
+ .review-text {
+ color: #4a4a4a;
+ font-size: 0.95rem;
+ line-height: 1.7;
+ }
+ 
+ /* Event Section */
+ .event-list {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 48px;
+ }
+ .event-item {
+ border: 2px solid #2d2a26;
+ padding: 40px;
+ text-align: center;
+ }
+ .event-item .emoji-icon {
+ font-size: 3rem;
+ margin-bottom: 16px;
+ }
+ .event-item h3 {
+ font-size: 1.5rem;
+ margin-bottom: 12px;
+ }
+ .event-item .price {
+ font-size: 2rem;
+ font-weight: 700;
+ color: #e07a5f;
+ margin-bottom: 16px;
+ }
+ .event-item p {
+ color: #4a4a4a;
+ }
+ 
+ /* About Section */
+ .about-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 48px;
+ }
+ .about-text p {
+ margin-bottom: 16px;
+ }
+ .about-features {
+ border: 2px solid #2d2a26;
+ padding: 32px;
+ }
+ .about-features ul {
+ list-style: none;
+ }
+ .about-features li {
+ padding: 12px 0;
+ border-bottom: 1px solid #ddd;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ }
+ .about-features li:last-child {
+ border-bottom: none;
+ }
+ 
+ /* Footer */
+ footer {
+ border-top: 1px solid #2d2a26;
+ padding: 48px 0;
+ text-align: center;
+ color: #888;
+ font-size: 0.9rem;
+ }
+ footer a {
+ color: #2d2a26;
+ text-decoration: none;
+ }
+ footer a:hover {
+ color: #e07a5f;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 768px) {
+ .container {
+ padding: 0 16px;
+ }
+ 
+ .hero {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ padding: 48px 0;
+ }
+ .hero-content h1 {
+ font-size: 1.8rem;
+ }
+ .hero-visual {
+ height: 200px;
+ font-size: 3rem;
+ }
+ 
+ .card-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .review-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .event-list {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .about-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ 
+ section {
+ padding: 48px 0;
+ }
+ .section-title {
+ font-size: 1.5rem;
+ margin-bottom: 32px;
+ }
+ 
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ right: 0;
+ background: #faf8f5;
+ border-bottom: 1px solid #2d2a26;
+ flex-direction: column;
+ padding: 16px 24px;
+ gap: 16px;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: block;
+ }
+ }
+ 
+ /* Utility */
+ .text-center { text-align: center; }
+ .mt-24 { margin-top: 24px; }
+ .mb-24 { margin-bottom: 24px; }
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · t3b07-bh-massage-evt-1">
+  <meta property="og:description" content="t3b07-bh-massage-evt-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://banghwa-care-note.mapo-room-guide.xyz/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/field_note-002-1vv7ka9.html">방화 마사지 이벤트 현장에서 놓치기 쉬운 포인트를 기록해봤다</a>
+        <p class="post-item__summary">이벤트 일정과 운영 시간을 공식 채널에서 미리 확인하고, 예약 가능 여부와 인원 제한을 사전에 파악하는 것이 기본입니다. 현장 대기 시간을 줄이기 위해 온라인 사전 예약 시스템을 활용하거나, 전화 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260705-675.html">주말보다 영업일 오후 3시 방화 마사지 매장에 들어가는 쪽이 훨씬 유리할까</a>
+        <p class="post-item__summary">보통은 퇴근이나 주말에 피곤할 때 잡는 게 당연해 보이겠지만, 가만히 관찰해 보면 상황이 전혀 다르게 굴러간다. 뻔한 정보 다루기 싫으니 실제로 이벤트를 활용하는 지름길부터 짚고 넘어가겠다. 이벤트</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0205.html">방화 마사지 이벤트 정보와 동대문 풋쌤 방문 절차 및 후기 신뢰도 판별법</a>
+        <p class="post-item__summary">일상의 피로를 해소하기 위해 방화 마사지 이벤트 정보를 찾는 분들이 많아지고 있습니다. 신뢰할 수 있는 관리 시설을 선택하는 것은 건강한 휴식을 위한 첫걸음입니다. 특히 동대문 지역에서 체계적인 관</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0206.html">방화 마사지 이벤트 탐색보다 중요한 마포 합정 소인원 파티 가격 판단 기준</a>
+        <p class="post-item__summary">방화 마사지 이벤트 정보를 찾으며 힐링을 계획하는 시간만큼, 소중한 사람들과의 사적인 모임 장소를 고르는 과정도 중요합니다. 마포와 합정 일대에는 프라이빗한 소인원 파티를 위한 공간이 다수 존재합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0207.html">방화 마사지 이벤트 확인 전 경계해야 할 홍대 밤문화 예약의 실패 지점</a>
+        <p class="post-item__summary">바쁜 일상 중 방화 마사지 이벤트 같은 휴식 정보를 찾는 이들은, 종종 마포 홍대 일대의 밤문화 역시 신중하게 접근하려 합니다. 그러나 경험이 부족한 이들은 예약 과정에서 예기치 못한 실패를 겪곤 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0208.html">방화 마사지 이벤트 체크리스트처럼 확인하는 마포 유흥 정찰제 정보 활용법</a>
+        <p class="post-item__summary">마포 지역에서 방화 마사지 이벤트 정보를 찾던 이들이 유흥 시설을 방문할 때 가장 당황하는 지점은 바로 가격입니다. 투명한 정찰제가 시행되는지 여부를 미리 확인하는 것은 방문 전 필수적인 항목입니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0209.html">방화 마사지 이벤트 활용 전 필수 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">주말 저녁 마포의 번화가를 걷다 보면 방화 마사지 이벤트 현수막을 심심치 않게 발견하게 됩니다. 여유로운 시간을 보낸 뒤 근처 코인노래방을 찾는 분들이 많은데, 이때 가장 중요한 것은 매장의 방음 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0210.html">방화 마사지 이벤트 이용객을 위한 마포 럭셔리 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">많은 이들이 방화 마사지 이벤트 이후 방문하는 단체 가라오케는 무조건 예약이 어렵다고 생각합니다. 그러나 이는 특정 시간대와 요일을 제대로 파악하지 못해서 발생하는 오해입니다. 체계적인 예약 프로세</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0211.html">방화 마사지 이벤트 마케팅을 위한 콘텐츠 급수 정화 정보</a>
+        <p class="post-item__summary">성공적인 홍보를 위해서는 안정적인 기반 구축이 최우선입니다. 방화 마사지 이벤트 관련 콘텐츠를 기획할 때, 도메인 점수를 높이기 위한 명확한 충족 조건들을 나열하는 것부터 시작해야 합니다. 검색 엔</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0212.html">방화 마사지 이벤트 자동화 기반 4</a>
+        <p class="post-item__summary">반복적인 업무를 수행하며 디지털 자산을 관리할 때 스스로에게 질문을 던져보셨습니까? 방화 마사지 이벤트 홍보를 수작업으로 일일이 진행하는 것이 과연 효율적인가에 대한 의문입니다. 이제는 인공지능 에</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0213.html">방화 마사지 이벤트 활용한 구글 틈새 키워드 트래픽 외환 거래 전략 분석</a>
+        <p class="post-item__summary">최근 온라인 마케팅과 투자 영역에서 특정 키워드를 활용한 데이터 최적화 기법이 주목받고 있습니다. 방화 마사지 이벤트와 같은 지역 기반 키워드는 타겟 오디언스를 명확히 설정할 수 있다는 점에서 유효</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0214.html">방화 마사지 이벤트 데이터 관리로 본 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호</a>
+        <p class="post-item__summary">웹사이트 운영자들은 방화 마사지 이벤트와 같은 지역 키워드를 최적화할 때 검색 엔진의 크롤링 효율을 높이는 고민을 하게 됩니다. 사이트의 노출을 결정하는 것은 결국 검색 봇의 방문 빈도와 수집 범위</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0215.html">방화 마사지 이벤트 후 단체 이동시 고려할 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">단체 회식을 계획할 때 가장 흔히 범하는 실수는 인원 수에 맞는 공간을 미리 확보하지 않는 점입니다. 방화 마사지 이벤트 방문 이후 자연스럽게 이동할 장소를 찾을 때, 당일 예약이 어려운 상황을 마</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0216.html">방화 마사지 이벤트 찾는 분들이 체크할 셔츠룸 사이트 위치와 접근성</a>
+        <p class="post-item__summary">새로운 여가 문화를 탐색하는 이들은 지역 정보를 찾는 과정에서 다양한 업태를 접하게 됩니다. 방화 마사지 이벤트와 같이 특정 목적의 서비스를 찾는 분들이라면, 유사한 유형의 엔터테인먼트 공간에 대한</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0217.html">방화 마사지 이벤트 활용 전 체크하는 마포 홍대 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">최근 단체 모임을 기획하면서 장소 섭외에 어려움을 겪는 이들이 많습니다. 특히 방화 마사지 이벤트 정보를 검색하며 여유로운 시간을 계획하는 분들이 늘어나고 있는데, 이와 연계하여 저녁 모임을 준비할</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0218.html">방화 마사지 이벤트 관련 오해 풀기와 구글 알고리즘 고신용 도메인 보증 카드 발급</a>
+        <p class="post-item__summary">많은 이들이 검색 엔진의 작동 원리를 단순히 운에 맡기는 경향이 있습니다. 방화 마사지 이벤트 같은 키워드를 활용해 정보를 얻으려는 시도 역시 일종의 데이터 활용 능력이 필요한 영역입니다. 흔한 오</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0219.html">방화 마사지 이벤트 그 이상의 가치, 합정 셔츠룸 단골들이 뽑은 핫플 매거진</a>
+        <p class="post-item__summary">최근 유흥 문화의 흐름을 파악하기 위해선 몇 가지 핵심 충족 조건이 있습니다. 방화 마사지 이벤트처럼 힐링을 찾는 분들이 합정 지역의 유흥 시설을 함께 고려할 때 가장 먼저 확인해야 할 것은 매장의</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0220.html">방화 마사지 이벤트 검색 효율 높이는 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">당신의 웹사이트가 검색 결과에 빠르게 반영되지 않아 답답함을 느낀 적이 있으신가요? 방화 마사지 이벤트 같은 지역 기반 정보를 제공할 때, 기술적인 뒷받침이 없으면 데이터의 전달 속도는 현저히 느려</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0221.html">방화 마사지 이벤트 활용한 구글 신뢰 지수 모발이식 솔루션 분석</a>
+        <p class="post-item__summary">정보의 홍수 속에서 특정 서비스를 선택할 때는 플랫폼이 제공하는 신뢰 지수를 먼저 확인하는 것이 필수적입니다. 방화 마사지 이벤트 정보를 검색할 때도 단순히 노출 순위에 의존하기보다는 데이터의 정확</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0272.html">방화 마사지 이벤트 방문 전 필독 셔츠룸 예약 체크리스트</a>
+        <p class="post-item__summary">방화 마사지 이벤트 정보를 찾는 분들은 종종 퇴근 후 여가 활동의 일환으로 다양한 유흥 문화를 탐색합니다. 최근 주목받는 셔츠룸은 접근성과 편의성이 중요하게 작용하는 곳으로, 방문 전 철저한 사전 </p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
